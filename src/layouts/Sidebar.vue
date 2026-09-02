@@ -91,9 +91,9 @@
       </li>
 
       <!-- Section label -->
-      <p class="mt-5 mb-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-white/40">
+      <!-- <p class="mt-5 mb-2 px-3 text-[11px] font-semibold uppercase tracking-wider text-white/40">
         Collaborations
-      </p>
+      </p> -->
 
       <li
         v-for="item in menuItems4"
@@ -169,17 +169,24 @@ const menuItems1 = [
 ]
 
 const menuItems2 = [
-  // {
-  //   nav: 'overview',
-  //   label: 'smart vault',
-  //   icon: 'mdi mdi-view-dashboard-outline',
-  //   to: '/smart'
-  // },
+  
   {
     nav: 'overview',
-    label: 'Budget planner',
+    label: 'Business Budget planner',
     icon: 'mdi mdi-view-dashboard-outline',
     to: '/budgetplanner'
+  },
+  {
+    nav: 'overview',
+    label: 'Bills & Obligations',
+    icon: 'mdi mdi-view-dashboard-outline',
+    to: '/bills&obligations'
+  },
+  {
+    nav: 'overview',
+    label: 'Payroll & Salary Planning',
+    icon: 'mdi mdi-view-dashboard-outline',
+    to: '/moneycalender'
   },
   {
     nav: 'overview',
@@ -189,7 +196,7 @@ const menuItems2 = [
   },
   {
     nav: 'overview',
-    label: 'Bill settlement',
+    label: 'Spending & Settlement',
     icon: 'mdi mdi-view-dashboard-outline',
     to: '/billsettlement'
   },
@@ -207,15 +214,10 @@ const menuItems2 = [
     to: '/expensetracking'
   },
   
-  // {
-  //   nav: 'overview',
-  //   label: 'money calender',
-  //   icon: 'mdi mdi-view-dashboard-outline',
-  //   to: '/moneycalender'
-  // },
+  
   {
     nav: 'overview',
-    label: 'Transaction History',
+    label: 'Reports & Financial History',
     icon: 'mdi mdi-view-dashboard-outline',
     to: '/transactionhistory'
   }
@@ -255,26 +257,26 @@ const menuItems3 = [
   }
 ]
 
-const menuItems4 = [
-  {
-    nav: 'overview',
-    label: 'couple vault',
-    icon: 'mdi mdi-view-dashboard-outline',
-    to: '/couple'
-  },
-  {
-    nav: 'overview',
-    label: 'Business',
-    icon: 'mdi mdi-view-dashboard-outline',
-    to: '/business'
-  },
-  {
-    nav: 'overview',
-    label: 'student',
-    icon: 'mdi mdi-view-dashboard-outline',
-    to: '/students'
-  }
-]
+// const menuItems4 = [
+//   {
+//     nav: 'overview',
+//     label: 'couple vault',
+//     icon: 'mdi mdi-view-dashboard-outline',
+//     to: '/couple'
+//   },
+//   {
+//     nav: 'overview',
+//     label: 'Business',
+//     icon: 'mdi mdi-view-dashboard-outline',
+//     to: '/business'
+//   },
+//   {
+//     nav: 'overview',
+//     label: 'student',
+//     icon: 'mdi mdi-view-dashboard-outline',
+//     to: '/students'
+//   }
+// ]
 
 // =====================================================
 // ACTIVE ROUTE

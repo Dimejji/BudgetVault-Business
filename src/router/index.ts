@@ -30,9 +30,9 @@ const router = createRouter({
     },
     // plain&track
     {
-      path: '/smart',
-      name: 'smart',
-      component: () => import('@/layouts/sidebar/SmartVault.vue')
+      path: '/bills&obligations',
+      name: 'bills&obligations',
+      component: () => import('@/layouts/sidebar/Bills&Obligations.vue')
     },
 
     {

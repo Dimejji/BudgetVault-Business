@@ -92,126 +92,65 @@ onUnmounted(() => {
       <!-- Header -->
       <PageHeader
         eyebrow="Plan & Track"
-        title="Smart Vaults"
-        subtitle="Give every naira a job before it disappears."
+        title="Business & Obligations"
+        subtitle="Allocate Financing For Each Bills and Expenses Here!"
       >
         <template #actions>
           <div class="flex flex-col xs:flex-row gap-2.5 w-full sm:w-auto">
             <button
               type="button"
-              @click="openNewVaultModal"
               class="border border-bvline bg-white rounded-[11px] px-4 py-2.5 font-bold text-[12.5px] w-full sm:w-auto hover:border-green-600 hover:bg-green-50 transition"
             >
-              ＋ New vault
+              ＋ New Bill
             </button>
           </div>
-          <AddVault
-            v-model="showVaultModal"
-            :editing-vault="editingVault"
-            currency="₦"
-            @save="handleVaultSave"
-          />
         </template>
       </PageHeader>
 
-      <!-- Metrics (live from Supabase) -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <Metric
-          label="Total vault balance"
-          :value="formatCurrency(vaultStore.totalProtected)"
-          valueClass="text-[#168064]"
-        />
-        <Metric label="Active vaults" :value="String(vaultStore.activeVaultsCount)" />
-        <Metric label="Completed" :value="String(vaultStore.completedVaultsCount)" />
-      </div>
+      <!-- bills&obligations modal  -->
+      <BasePanel>
+        <template #head>
+          <div class="min-w-0">
+            <h2 class="m-0 truncate text-[15px] font-bold text-[#17241f] sm:text-[17px]">
+             Bills & Obligations
+            </h2>
 
-      <!-- Loading -->
-      <div v-if="vaultStore.loading" class="text-center py-10 text-[13px] text-bvmuted">
-        Loading your vaults…
-      </div>
-
-      <!-- Error -->
-      <div
-        v-else-if="vaultStore.error"
-        class="rounded-[15px] border border-red-200 bg-red-50 p-4 text-[12.5px] text-red-600"
-      >
-        {{ vaultStore.error }}
-      </div>
-
-      <!-- Vault Cards -->
-      <div
-        v-else-if="vaultStore.vaults.length"
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5"
-      >
-        <div
-          v-for="vault in vaultStore.vaults"
-          :key="vault.id"
-          class="bg-white border border-bvline rounded-[18px] p-4 sm:p-[18px] shadow-card hover:shadow-md transition-all duration-200"
-        >
-          <div class="flex items-start justify-between mb-1.5 gap-2">
-            <h3 class="m-0 text-[14.5px] font-bold text-gray-900">
-              {{ vault.icon }} {{ vault.title }}
-            </h3>
-            <div class="flex items-center gap-1 shrink-0">
-              <button
-                type="button"
-                @click="openEditVault(vault)"
-                class="h-7 w-7 flex items-center justify-center rounded-full text-gray-400 hover:text-gray-900 hover:bg-gray-100 transition-colors text-[13px]"
-                aria-label="Edit vault"
-                title="Edit vault"
-              >
-                ✏️
-              </button>
-              <button
-                type="button"
-                @click="confirmDeleteVault(vault)"
-                class="h-7 w-7 flex items-center justify-center rounded-full text-gray-400 hover:text-red-500 hover:bg-red-50 transition-colors text-[13px]"
-                aria-label="Delete vault"
-                title="Delete vault"
-              >
-                🗑️
-              </button>
-            </div>
+            <p class="mt-0.5 text-[10px] text-bvmuted">Your bills and planned Expenses</p>
           </div>
-          <p class="text-[11.5px] text-bvmuted leading-relaxed m-0 mb-3">
-            {{ vault.payee_bank ? `Settles to ${vault.payee_bank}` : 'Protected vault.' }}
-          </p>
-          <ProgressTrack :percent="vault.progress" />
-          <div class="flex justify-between items-center pt-3">
-            <span class="text-[11px] text-bvmuted">
-              {{ formatCurrency(vault.current) }} of {{ formatCurrency(vault.target) }}
-            </span>
-            <Pill :variant="colorToVariant(vault.color)">{{ vault.progress }}%</Pill>
-          </div>
-        </div>
-      </div>
 
-      <!-- Empty state -->
-      <div v-else class="w-full rounded-[15px] border border-[#edf0ee] bg-white p-[15px] shadow-sm">
-        <div class="flex items-center justify-between">
-          <h2 class="text-[15px] font-bold text-gray-900">Smart Vault</h2>
           <button
             type="button"
-            @click="openNewVaultModal"
-            class="rounded-[10px] bg-[#111827] px-[12px] py-[8px] text-[11px] font-bold text-white hover:opacity-90"
+            class="shrink-0 whitespace-nowrap border-0 bg-transparent text-[11px] font-extrabold text-bvgreen2 transition-all duration-200 hover:translate-x-1"
           >
-            + New vault
+            View all →
+          </button>
+        </template>
+
+        <!-- Budgets -->
+        <div v-if="budgetStore?.budgets?.length" class="divide-y divide-[#eff0ed]">
+          <!-- Budget items will go here -->
+        </div>
+
+        <!-- Empty state -->
+        <div
+          v-else
+          class="rounded-[13px] border border-dashed border-[#dce5e1] bg-[#fafcfb] p-6 text-center"
+        >
+          <div class="text-[12px] font-bold text-[#26352f]">No Bills yet</div>
+
+          <p class="mt-1 text-[10px] leading-4 text-bvmuted">
+            Create your first Bill and start tracking it here.
+          </p>
+
+          <button
+            type="button"
+            @click="openAddBudgetModal"
+            class="mt-3 rounded-xl bg-emerald-600 px-4 py-2 text-[11px] font-bold text-white transition hover:bg-emerald-700"
+          >
+            Add Bills
           </button>
         </div>
-
-        <div class="flex min-h-[140px] items-center justify-center">
-          <div class="text-center">
-            <div
-              class="mx-auto mb-3 grid h-10 w-10 place-items-center rounded-full bg-gray-100 text-lg"
-            >
-              💰
-            </div>
-            <p class="text-[13px] font-semibold text-gray-700">No vaults yet</p>
-            <p class="mt-1 text-[11px] text-gray-400">Create your first vault to start saving.</p>
-          </div>
-        </div>
-      </div>
-
+      </BasePanel>
       <!-- Activity + Rules -->
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
         <BasePanel title="Vault activity" meta="Today">
