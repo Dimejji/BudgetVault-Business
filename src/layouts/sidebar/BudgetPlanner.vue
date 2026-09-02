@@ -17,8 +17,6 @@ import { useBudgetSettingsStore } from '@/stores/budgetSettings'
 import BudgetDetailModal from '@/components/BudgetDetailModal.vue'
 import AddBudgetModal from '@/components/AddBudgetModal.vue'
 
-
-
 const budgetSettingsStore = useBudgetSettingsStore()
 const app = useAppStore()
 const budgetStore = useBudgetStore()
@@ -41,9 +39,7 @@ const handleBudgetSave = (settings) => {
 const incomePercent = computed(() => {
   if (!budgetSettingsStore.amount) return 0
 
-  return Math.round(
-    (budgetStore.totalAllocation / budgetSettingsStore.amount) * 100
-  )
+  return Math.round((budgetStore.totalAllocation / budgetSettingsStore.amount) * 100)
 })
 
 const previewBudgets = computed(() => budgetStore.budgets.slice(0, 4))
@@ -128,12 +124,12 @@ function handleViewAllAddBudget() {
 
             <!-- Dropdown -->
             <EditBudgetmodal
-  v-model="editBudgetOpen"
-  :initial-budget="budgetSettingsStore.amount"
-  :initial-schedule="budgetSettingsStore.schedule"
-  :initial-auto-renew="budgetSettingsStore.autoRenew"
-  @save="handleBudgetSave"
-/>
+              v-model="editBudgetOpen"
+              :initial-budget="budgetSettingsStore.amount"
+              :initial-schedule="budgetSettingsStore.schedule"
+              :initial-auto-renew="budgetSettingsStore.autoRenew"
+              @save="handleBudgetSave"
+            />
           </div>
 
           <button
@@ -149,10 +145,10 @@ function handleViewAllAddBudget() {
       <!-- Stats -->
       <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 lg:gap-3.5">
         <StatCard
-  label="withdrawn amount"
-  :value="budgetSettingsStore.formattedAmount"
-  meta="Confirmed"
-/>
+          label="Business Balance"
+          :value="budgetSettingsStore.formattedAmount"
+          meta="Confirmed"
+        />
         <StatCard
           label="total allocation"
           :value="formatNaira(budgetStore.totalAllocation)"
@@ -227,10 +223,10 @@ function handleViewAllAddBudget() {
 
     <!-- Add Budget popup -->
     <AddBudgetModal
-  v-model="showAddBudgetModal"
-  :total-budget="budgetSettingsStore.amount"
-  @create="createBudget"
-/>
+      v-model="showAddBudgetModal"
+      :total-budget="budgetSettingsStore.amount"
+      @create="createBudget"
+    />
 
     <!-- Budget detail popup -->
     <BudgetDetailModal

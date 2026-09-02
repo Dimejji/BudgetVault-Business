@@ -85,12 +85,6 @@ const toggleSettleBudget = () => {
   showSettleBudget.value = !showSettleBudget.value
 }
 
-// function settleFromDashboard(bill) {
-//   const result = budgetStore.settleBudget(bill.id)
-//   if (!result) return
-//   app.showToast(`${bill.name} settled — new cycle started`)
-// }
-
 /* ---------------- Budgets preview list ---------------- */
 const visibleBudgets = computed(() => budgetStore.budgets.slice(0, 4))
 const hiddenBudgetCount = computed(() => Math.max(0, budgetStore.budgets.length - 4))
@@ -148,38 +142,7 @@ const savingsPercent = computed(() => {
   return Math.min(100, Math.round((savingsStore.totalSavings / savingsStore.totalAdded) * 100))
 })
 
-// const handleWithdrawal = ({ amount }) => {
-//   const success = budgetSettingsStore.recordWithdrawal(amount)
 
-//   if (!success) {
-//     app.showToast('Withdrawal failed — amount exceeds available balance')
-//     return
-//   }
-
-//   transactionsStore.addTransaction({
-//     icon: '💸',
-//     name: 'Withdrawal',
-//     subtitle: 'Budget withdrawal',
-//     amount: -amount
-//   })
-
-//   app.showToast(`${budgetStore.formatNaira(amount)} withdrawal requested successfully`)
-//   showWithdrawalModal.value = false
-// }
-
-// function handleAddMoney(id, amt) {
-//   const b = budgetStore.addMoney(id, amt)
-//   if (!b) return
-
-//   transactionsStore.addTransaction({
-//     icon: '💰',
-//     name: `Added to "${b.name}"`,
-//     subtitle: 'Budget contribution',
-//     amount: -amt
-//   })
-
-//   app.showToast(`₦${amt.toLocaleString()} added to "${b.name}"`)
-// }
 </script>
 
 <template>
@@ -300,10 +263,10 @@ const savingsPercent = computed(() => {
       <!-- SUMMARY CARDS -->
       <!-- ========================================================= -->
       <section class="mb-[18px] grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
-        <StatCard label="Account Balance" value="₦850,000" meta="Next income in 8 days" />
+       
 
         <StatCard
-          label="Withdrawn"
+          label="Business balance "
           :value="budgetSettingsStore.formattedWithdrawn"
           valueClass="text-[#168064]"
         >
@@ -312,16 +275,19 @@ const savingsPercent = computed(() => {
             of budget withdrawn
           </template>
         </StatCard>
-
+        
         <StatCard
-          label="Unsettled Debt"
+          label="Upcoming Obligation"
           :value="budgetStore.formatNaira(budgetStore.unsettledDebt)"
           valueClass="text-bvorange"
           :meta="`${budgetStore.formatNaira(budgetStore.unsettledDebt)} remaining`"
         />
+         <StatCard label="Payroll " value="₦0" meta="Next income in 8 days" />
+
+        
 
         <StatCard
-          label="Savings"
+          label="Business Savings"
           :value="savingsStore.formatNaira(savingsStore.totalSavings)"
           valueClass="text-[#168064]"
           meta="Current savings balance"
