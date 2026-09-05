@@ -1,4 +1,4 @@
-```vue
+
 <script setup>
 import MainLayout from '@/layouts/MainLayout.vue'
 import { ref, computed } from 'vue'
@@ -18,170 +18,15 @@ const selectedEmployee = ref(null)
 ========================================================= */
 
 const employees = ref([
-  {
-    id: 1,
-    name: 'Emmanuel Okoro',
-    role: 'Developer',
-    base: 350000,
-    transport: 50000,
-    allowance: 30000,
-    other: 0,
-    accountName: 'Emmanuel Okoro',
-    accountNumber: '0123456789',
-    bank: 'GTBank',
-    paymentStatus: 'Pending'
-  },
-  {
-    id: 2,
-    name: 'Aisha Bello',
-    role: 'Product Manager',
-    base: 420000,
-    transport: 45000,
-    allowance: 40000,
-    other: 15000,
-    accountName: 'Aisha Bello',
-    accountNumber: '1029384756',
-    bank: 'Access Bank',
-    paymentStatus: 'Pending'
-  },
-  {
-    id: 3,
-    name: 'Chinedu Eze',
-    role: 'Designer',
-    base: 280000,
-    transport: 35000,
-    allowance: 25000,
-    other: 10000,
-    accountName: 'Chinedu Eze',
-    accountNumber: '2233445566',
-    bank: 'First Bank',
-    paymentStatus: 'Pending'
-  },
-  {
-    id: 4,
-    name: 'Fatima Yusuf',
-    role: 'Backend Engineer',
-    base: 380000,
-    transport: 50000,
-    allowance: 35000,
-    other: 20000,
-    accountName: 'Fatima Yusuf',
-    accountNumber: '3344556677',
-    bank: 'UBA',
-    paymentStatus: 'Pending'
-  },
-  {
-    id: 5,
-    name: 'Tunde Adeyemi',
-    role: 'DevOps',
-    base: 400000,
-    transport: 55000,
-    allowance: 40000,
-    other: 25000,
-    accountName: 'Tunde Adeyemi',
-    accountNumber: '4455667788',
-    bank: 'Zenith Bank',
-    paymentStatus: 'Pending'
-  },
-  {
-    id: 6,
-    name: 'Ngozi Okafor',
-    role: 'QA Engineer',
-    base: 260000,
-    transport: 30000,
-    allowance: 20000,
-    other: 10000,
-    accountName: 'Ngozi Okafor',
-    accountNumber: '5566778899',
-    bank: 'Kuda',
-    paymentStatus: 'Pending'
-  },
-  {
-    id: 7,
-    name: 'Ibrahim Musa',
-    role: 'Frontend Engineer',
-    base: 320000,
-    transport: 40000,
-    allowance: 30000,
-    other: 15000,
-    accountName: 'Ibrahim Musa',
-    accountNumber: '6677889900',
-    bank: 'OPay',
-    paymentStatus: 'Pending'
-  },
-  {
-    id: 8,
-    name: 'Blessing Okeke',
-    role: 'HR Lead',
-    base: 300000,
-    transport: 40000,
-    allowance: 35000,
-    other: 20000,
-    accountName: 'Blessing Okeke',
-    accountNumber: '7788990011',
-    bank: 'Moniepoint',
-    paymentStatus: 'Pending'
-  },
-  {
-    id: 9,
-    name: 'Emeka Nwosu',
-    role: 'Mobile Developer',
-    base: 340000,
-    transport: 45000,
-    allowance: 30000,
-    other: 15000,
-    accountName: 'Emeka Nwosu',
-    accountNumber: '8899001122',
-    bank: 'GTBank',
-    paymentStatus: 'Pending'
-  },
-  {
-    id: 10,
-    name: 'Zainab Abubakar',
-    role: 'Data Analyst',
-    base: 270000,
-    transport: 35000,
-    allowance: 25000,
-    other: 10000,
-    accountName: 'Zainab Abubakar',
-    accountNumber: '9900112233',
-    bank: 'Access Bank',
-    paymentStatus: 'Pending'
-  },
-  {
-    id: 11,
-    name: 'Kunle Bakare',
-    role: 'Sales Lead',
-    base: 290000,
-    transport: 50000,
-    allowance: 45000,
-    other: 25000,
-    accountName: 'Kunle Bakare',
-    accountNumber: '1122334455',
-    bank: 'UBA',
-    paymentStatus: 'Pending'
-  },
-  {
-    id: 12,
-    name: 'Adaeze Nwankwo',
-    role: 'Customer Success',
-    base: 250000,
-    transport: 30000,
-    allowance: 25000,
-    other: 10000,
-    accountName: 'Adaeze Nwankwo',
-    accountNumber: '1234567800',
-    bank: 'First Bank',
-    paymentStatus: 'Pending'
-  }
+  
 ])
 
 /* =========================================================
    FORECAST
 ========================================================= */
 
-const projectedIncome = ref(18500000)
-const reserves = ref(4200000)
+const projectedIncome = ref(0)
+const reserves = ref(0)
 
 /* =========================================================
    ADD EMPLOYEE FORM

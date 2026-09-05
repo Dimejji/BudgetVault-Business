@@ -186,7 +186,7 @@ const menuItems2 = [
     nav: 'overview',
     label: 'Payroll & Salary Planning',
     icon: 'mdi mdi-view-dashboard-outline',
-    to: '/moneycalender'
+    to: '/payroll&salaryplanning'
   },
   {
     nav: 'overview',
@@ -198,13 +198,7 @@ const menuItems2 = [
     nav: 'overview',
     label: 'Spending & Settlement',
     icon: 'mdi mdi-view-dashboard-outline',
-    to: '/billsettlement'
-  },
-  {
-    nav: 'overview',
-    label: 'savings',
-    icon: 'mdi mdi-view-dashboard-outline',
-    to: '/savings'
+    to: '/Spending&Settlement'
   },
 
   {
@@ -213,13 +207,21 @@ const menuItems2 = [
     icon: 'mdi mdi-view-dashboard-outline',
     to: '/expensetracking'
   },
+  {
+    nav: 'overview',
+    label: 'savings',
+    icon: 'mdi mdi-view-dashboard-outline',
+    to: '/savings'
+  },
+
+  
   
   
   {
     nav: 'overview',
     label: 'Reports & Financial History',
     icon: 'mdi mdi-view-dashboard-outline',
-    to: '/transactionhistory'
+    to: '/report&financialhistory'
   }
 ]
 

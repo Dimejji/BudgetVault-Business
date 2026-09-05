@@ -48,9 +48,9 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
-      path: '/billsettlement',
-      name: 'billsettlement',
-      component: () => import('@/layouts/sidebar/BillSettlement.vue'),
+      path: '/spending&settlement',
+      name: 'spending&settlementt',
+      component: () => import('@/layouts/sidebar/SpendingSettlement.vue'),
       meta: { requiresAuth: true }
     },
     {
@@ -74,9 +74,9 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
-      path: '/moneycalender',
-      name: 'moneycalender',
-      component: () => import('@/layouts/sidebar/MoneyCalendar.vue'),
+      path: '/payroll&salaryplanning',
+      name: 'payroll&salaryplanning',
+      component: () => import('@/layouts/sidebar/Payroll&SalaryPlanning.vue'),
       meta: { requiresAuth: true }
     },
     {
@@ -105,9 +105,9 @@ const router = createRouter({
       meta: { requiresAuth: true }
     },
     {
-      path: '/transactionhistory',
-      name: 'transactionhistory',
-      component: () => import('@/layouts/sidebar/TransactionHistory.vue'),
+      path: '/report&financialhistory',
+      name: 'report&financialhistory',
+      component: () => import('@/layouts/sidebar/Report&financialhistory.vue'),
       meta: { requiresAuth: true }
     },
     // collaboration
